@@ -99,6 +99,22 @@ print_info() {
 title_fqdn="off"
 
 
+# Host
+
+
+# Shorten the output of the host function.
+#
+# Default:  'off'
+# Values:   'on', 'off'
+# Flag:     --kernel_shorthand
+# Supports: 
+#
+# Example:
+# on:  'KVM/QEMU'
+# off: 'KVM/QEMU (Standard PC (Q35 + ICH9, 2009) pc-q35-8.2)'
+standard_pc_shorthand="off"
+
+
 # Kernel
 
 
@@ -1374,7 +1390,12 @@ get_model() {
     model=${model//�}
 
     case $model in
-        "Standard PC"*) model="KVM/QEMU (${model})" ;;
+        "Standard PC"*)
+            case $standard_pc_shorthand in
+                on)  model="KVM/QEMU" ;;
+                off) model="KVM/QEMU (${model})" ;;
+            esac
+        ;;
         OpenBSD*)       model="vmm ($model)" ;;
     esac
 }
