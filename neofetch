@@ -106,7 +106,7 @@ title_fqdn="off"
 #
 # Default:  'off'
 # Values:   'on', 'off'
-# Flag:     --kernel_shorthand
+# Flag:     --standard_pc_shorthand
 # Supports: 
 #
 # Example:
