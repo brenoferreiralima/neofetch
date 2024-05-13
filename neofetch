@@ -53,9 +53,9 @@ read -rd '' config <<'EOF'
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
-    info title
-    info underline
-
+    # info title
+    # info underline
+    # 
     info "OS" distro
     info "Host" model
     info "Kernel" kernel
@@ -68,16 +68,16 @@ print_info() {
     info "WM Theme" wm_theme
     info "Theme" theme
     info "Icons" icons
+    info "Font" font
     info "Terminal" term
     info "Terminal Font" term_font
     info "CPU" cpu
     info "GPU" gpu
     info "Memory" memory
+    info "Disk" disk
+    info "Battery" battery
 
     # info "GPU Driver" gpu_driver  # Linux/macOS only
-    # info "Disk" disk
-    # info "Battery" battery
-    # info "Font" font
     # info "Song" song
     # [[ "$player" ]] && prin "Music Player" "$player"
     # info "Local IP" local_ip
@@ -104,7 +104,7 @@ title_fqdn="off"
 
 # Shorten the output of the host function.
 #
-# Default:  'off'
+# Default:  'on'
 # Values:   'on', 'off'
 # Flag:     --standard_pc_shorthand
 # Supports: 
@@ -112,7 +112,7 @@ title_fqdn="off"
 # Example:
 # on:  'KVM/QEMU'
 # off: 'KVM/QEMU (Standard PC (Q35 + ICH9, 2009) pc-q35-8.2)'
-standard_pc_shorthand="off"
+standard_pc_shorthand="on"
 
 
 # Kernel
@@ -160,7 +160,7 @@ os_arch="on"
 
 # Shorten the output of the uptime function
 #
-# Default: 'on'
+# Default: 'tiny'
 # Values:  'on', 'tiny', 'off'
 # Flag:    --uptime_shorthand
 #
@@ -168,7 +168,7 @@ os_arch="on"
 # on:   '2 days, 10 hours, 3 mins'
 # tiny: '2d 10h 3m'
 # off:  '2 days, 10 hours, 3 minutes'
-uptime_shorthand="on"
+uptime_shorthand="tiny"
 
 
 # Memory
@@ -176,14 +176,14 @@ uptime_shorthand="on"
 
 # Show memory percentage in output.
 #
-# Default: 'off'
+# Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --memory_percent
 #
 # Example:
 # on:   '1801MiB / 7881MiB (22%)'
 # off:  '1801MiB / 7881MiB'
-memory_percent="off"
+memory_percent="on"
 
 # Change memory output unit.
 #
@@ -254,7 +254,7 @@ speed_type="bios_limit"
 
 # CPU speed shorthand
 #
-# Default: 'off'
+# Default: 'on'
 # Values: 'on', 'off'.
 # Flag:    --speed_shorthand
 # NOTE: This flag is not supported in systems with CPU speed less than 1 GHz
@@ -262,7 +262,7 @@ speed_type="bios_limit"
 # Example:
 # on:    'i7-6500U (4) @ 3.1GHz'
 # off:   'i7-6500U (4) @ 3.100GHz'
-speed_shorthand="off"
+speed_shorthand="on"
 
 # Enable/Disable CPU brand in output.
 #
@@ -278,19 +278,19 @@ cpu_brand="on"
 # CPU Speed
 # Hide/Show CPU speed.
 #
-# Default: 'on'
+# Default: 'off'
 # Values:  'on', 'off'
 # Flag:    --cpu_speed
 #
 # Example:
 # on:  'Intel i7-6500U (4) @ 3.1GHz'
 # off: 'Intel i7-6500U (4)'
-cpu_speed="on"
+cpu_speed="off"
 
 # CPU Cores
 # Display CPU cores in output
 #
-# Default: 'logical'
+# Default: 'off'
 # Values:  'logical', 'physical', 'off'
 # Flag:    --cpu_cores
 # Support: 'physical' doesn't work on BSD.
@@ -299,7 +299,7 @@ cpu_speed="on"
 # logical:  'Intel i7-6500U (4) @ 3.1GHz' (All virtual cores)
 # physical: 'Intel i7-6500U (2) @ 3.1GHz' (All physical cores)
 # off:      'Intel i7-6500U @ 3.1GHz'
-cpu_cores="logical"
+cpu_cores="off"
 
 # CPU Temperature
 # Hide/Show CPU temperature.
@@ -357,7 +357,7 @@ gpu_type="all"
 
 
 # Display refresh rate next to each monitor
-# Default: 'off'
+# Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --refresh_rate
 # Supports: Doesn't work on Windows.
@@ -365,7 +365,7 @@ gpu_type="all"
 # Example:
 # on:  '1920x1080 @ 60Hz'
 # off: '1920x1080'
-refresh_rate="off"
+refresh_rate="on"
 
 
 # Gtk Theme / Icons / Font
